@@ -22,7 +22,7 @@ A Next.js application for displaying photos with a custom layout, utilizing loca
 
 2. Install dependencies:
 
-     ` npm installl `
+     ` npm install `
 3. Set up Environment Variables
 
     Create a .env.local file in the root of the project with the following content, replacing YOUR_FLICKR_API_KEY with your actual Flickr API key: 
