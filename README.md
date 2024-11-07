@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Photo App
 A Next.js application for displaying photos with a custom layout, utilizing local fonts and including unit tests. The project fetches and displays images from an external API (like Flickr) and uses a debounced search input to improve performance.
 
@@ -76,3 +77,7 @@ Coverage reports are generated in the `coverage directory`.
 Add any required environment variables to `.env.local`. The app currently expects:
 
 `NEXT_PUBLIC_FLICKR_API_KEY: Your Flickr API key for photo fetching`.
+=======
+# photo-app
+Simple Photo search App with flickr api &amp; next.js 
+>>>>>>> f9bfe3ec55cbc8db1c2a4de8b0963aa248eb52d7
