@@ -71,6 +71,9 @@ To test coverage:
 `npm run test -- -- coverage`
 
 Coverage reports are generated in the `coverage directory`.
+![image](https://github.com/user-attachments/assets/cc5a3966-3789-400e-99b4-314e806e4959)
+
+
 
 ## Environment Variables
 Add any required environment variables to `.env.local`. The app currently expects:
