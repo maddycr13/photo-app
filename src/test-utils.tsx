@@ -1,14 +1,23 @@
+import React, { ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { render } from '@testing-library/react';
+import { render, RenderOptions } from '@testing-library/react';
 
-const queryClient = new QueryClient();
+const createTestQueryClient = () =>
+  new QueryClient({
+    defaultOptions: {
+      queries: {
+        retry: false, // Disable retries in test environment for deterministic results
+      },
+    },
+  });
 
-const renderWithQueryClient = (ui) => {
+export const renderWithQueryClient = (
+  ui: ReactNode,
+  options?: Omit<RenderOptions, 'queries'>
+) => {
+  const testQueryClient = createTestQueryClient();
   return render(
-    <QueryClientProvider client={queryClient}>
-      {ui}
-    </QueryClientProvider>
+    <QueryClientProvider client={testQueryClient}>{ui}</QueryClientProvider>,
+    options
   );
 };
-
-export { renderWithQueryClient };

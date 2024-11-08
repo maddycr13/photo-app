@@ -1,22 +1,18 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { render, fireEvent } from '@testing-library/react';
-import Home from './page';
+import { renderWithQueryClient } from '../test-utils';
+import { fireEvent, screen } from '@testing-library/react';
+import Home from './page'; // Adjust this import based on your file structure
 
-const queryClient = new QueryClient();
-
-describe('Home', () => {
+describe('Home Component', () => {
   it('should render the input field and photo display', () => {
-    render(
-      <QueryClientProvider client={queryClient}>
-        <Home />
-      </QueryClientProvider>
-    );
+    renderWithQueryClient(<Home />);
+
+    expect(screen.getByPlaceholderText('Search for photos')).toBeInTheDocument();
+
   });
-  // it('should update input value', () => {
-  //     const { getByPlaceholderText } = render(<Home />);
-  //     const input = getByPlaceholderText(/search photos/i) as HTMLInputElement;
-    
-  //     fireEvent.change(input, { target: { value: 'nature' } });
-  //     expect(input).toHaveValue('nature');
-  //   });
+  it('should update input value', () => {
+    renderWithQueryClient(<Home />);
+    const input = screen.getByPlaceholderText(/search for photos/i) as HTMLInputElement;
+    fireEvent.change(input, { target: { value: 'nature' } });
+    expect(input).toHaveValue('nature');
+  });
 });

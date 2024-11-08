@@ -37,4 +37,8 @@ describe('fetchPhotos', () => {
 
     await expect(fetchPhotos('nature')).rejects.toThrow('Network Error');
   });
+  it('should throw an error if API key is missing', async () => {
+    delete process.env.NEXT_PUBLIC_FLICKR_API_KEY; 
+    await expect(fetchPhotos('nature')).rejects.toThrow('API key is missing');
+  });
 });

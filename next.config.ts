@@ -1,8 +1,13 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['live.staticflickr.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'live.staticflickr.com',
+      },
+    ],
   },
   eslint: {
     ignoreDuringBuilds: true,

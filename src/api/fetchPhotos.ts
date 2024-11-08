@@ -20,6 +20,5 @@ export const fetchPhotos = async (query: string): Promise<Photo[]> => {
   const response = await axios.get(
     `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${API_KEY}&text=${query}&format=json&nojsoncallback=1`
   );
-
   return response.data.photos.photo;
 };
