@@ -17,8 +17,8 @@ export default function Home() {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         style={{color:'black'}}
-        className="p-2 border border-gray-300 rounded self-center"
-        placeholder="Search photos..."
+        placeholder="Search for photos"
+        className="mb-4 p-2 border rounded"
       />
       <PhotoDisplay query={debouncedQuery} />
     </div>

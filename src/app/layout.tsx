@@ -1,3 +1,7 @@
+"use client";
+
+import React, { useState } from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -14,16 +18,19 @@ const geistMono = localFont({
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
+  // Initialize the Query Client only once
+  const [queryClient] = useState(() => new QueryClient());
+
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
+    <QueryClientProvider client={queryClient}>
+      <html lang="en">
+        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+          {children}
+        </body>
+      </html>
+    </QueryClientProvider>
   );
 }
