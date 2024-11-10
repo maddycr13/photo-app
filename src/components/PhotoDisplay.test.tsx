@@ -1,5 +1,5 @@
-import { renderWithQueryClient } from '../test-utils'; // Utility for QueryClientProvider
-import { screen, waitFor } from '@testing-library/react'; // Ensure waitFor is imported
+import { renderWithQueryClient } from '../test-utils'; 
+import { screen, waitFor } from '@testing-library/react';
 import PhotoDisplay from './PhotoDisplay';
 import { fetchPhotos } from '../api/fetchPhotos';
 

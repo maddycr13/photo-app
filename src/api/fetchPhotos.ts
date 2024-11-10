@@ -1,4 +1,3 @@
-// fetchPhotos.ts
 import axios from 'axios';
 
 export interface Photo {
